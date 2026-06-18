@@ -7,12 +7,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; 
 
-  :root {
+  :root 
     --bg: #0a0a0f;
     --surface: #12121a;
-    --surface2: #1a1a26;
+    --surface2: #1a1a26
     --border: rgba(255,255,255,0.08);
     --border-hover: rgba(255,255,255,0.18);
     --accent: #c8ff00;
@@ -807,7 +807,7 @@ Return this exact JSON structure:
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 1000,
+        max_tokens: 4000,
         messages: [{ role: 'user', content: prompt }]
       })
     });
@@ -920,7 +920,7 @@ function showError(msg) {
 // Replace this with your real Stripe Payment Link URL.
 // In your Stripe dashboard: Products → Payment Links → Create
 // Set success URL to: https://yourdomain.com/music-promo-kit.html?paid=true
-const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/test_6oU7sL0wgbJg3ZEciz4gg00';
+const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/3cI28rdm0eFYcqRdp783C01';
 // ────────────────────────────────────────────────────────────────────────────
 
 let pdfUnlocked = false;
