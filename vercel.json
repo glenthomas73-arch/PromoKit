@@ -4,8 +4,8 @@
       "maxDuration": 60
     }
   },
-  "routes": [
-    { "src": "/", "dest": "/promokit-landing.html" },
-    { "src": "/app", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/", "destination": "/promokit-landing.html" },
+    { "source": "/app", "destination": "/index.html" }
   ]
 }
