@@ -7,12 +7,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; 
 
-  :root 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
     --bg: #0a0a0f;
     --surface: #12121a;
-    --surface2: #1a1a26
+    --surface2: #1a1a26;
     --border: rgba(255,255,255,0.08);
     --border-hover: rgba(255,255,255,0.18);
     --accent: #c8ff00;
@@ -481,6 +482,12 @@
     gap: 6px;
   }
 
+  /* BLUR LOCK */
+  .output-locked .content-body,
+  .output-locked .social-text,
+  .output-locked .hashtag-wrap { filter: blur(5px); user-select: none; pointer-events: none; }
+  .output-locked .copy-btn { opacity: 0.3; pointer-events: none; }
+
   /* PDF unlocked badge */
   .pdf-unlocked-badge {
     display: none;
@@ -802,7 +809,7 @@ Return this exact JSON structure:
 }`;
 
   try {
-    const res = await fetch('/api/generate', {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -860,6 +867,7 @@ function renderKit(info) {
 
   showLoading(false);
   document.getElementById('output').style.display = 'block';
+  if (!pdfUnlocked) document.getElementById('output').classList.add('output-locked');
 }
 
 function escHtml(s) {
@@ -902,6 +910,7 @@ function resetForm() {
   document.querySelectorAll('.step').forEach(s => s.classList.remove('done'));
   document.getElementById('pdf-unlocked-badge').classList.remove('show');
   document.getElementById('pdf-btn').textContent = '↓ Download PDF';
+  document.getElementById('output').classList.remove('output-locked');
   pdfUnlocked = false;
   kitData = {};
 }
@@ -978,6 +987,7 @@ function onAlreadyPaid() {
 function unlockPdf() {
   pdfUnlocked = true;
   document.getElementById('pdf-unlocked-badge').classList.add('show');
+  document.getElementById('output').classList.remove('output-locked');
   const btn = document.getElementById('pdf-btn');
   btn.textContent = '↓ Download PDF';
 }
