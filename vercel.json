@@ -1,7 +1,11 @@
 {
-    "functions": {
-          "api/generate.js": {
-                  "maxDuration": 60
-          }
+  "functions": {
+    "api/generate.js": {
+      "maxDuration": 60
     }
+  },
+  "routes": [
+    { "src": "/", "dest": "/promokit-landing.html" },
+    { "src": "/app", "dest": "/index.html" }
+  ]
 }
