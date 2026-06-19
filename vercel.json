@@ -4,6 +4,7 @@
       "maxDuration": 60
     }
   },
+  "outputDirectory": ".",
   "rewrites": [
     { "source": "/", "destination": "/promokit-landing.html" },
     { "source": "/app", "destination": "/index.html" }
