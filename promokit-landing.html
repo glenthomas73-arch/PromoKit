@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PromoKit — Press Kits for Independent Artists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0A0A0F;
+  --surface:#13121A;
+  --card:#1C1A28;
+  --border:#2E2B42;
+  --violet:#7C3AED;
+  --violet-light:#9D6FF5;
+  --violet-dim:#3D2170;
+  --white:#F0EDFF;
+  --muted:#8B87A8;
+  --faint:#3A364F;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Syne',sans-serif}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 2rem;
+  background:rgba(10,10,15,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;
+  font-weight:800;
+  font-size:1.25rem;
+  letter-spacing:0.04em;
+  color:var(--white);
+  text-decoration:none;
+}
+.nav-logo span{color:var(--violet-light)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{
+  background:var(--violet);
+  color:#fff;
+  padding:0.5rem 1.25rem;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:0.875rem;
+  font-weight:600;
+  font-family:'Syne',sans-serif;
+  letter-spacing:0.02em;
+  transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--violet-light)}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:7rem 1.5rem 5rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-20%;left:50%;
+  transform:translateX(-50%);
+  width:800px;height:800px;
+  background:radial-gradient(ellipse,rgba(124,58,237,0.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  background:var(--violet-dim);
+  color:var(--violet-light);
+  font-size:0.8rem;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:0.35rem 0.9rem;
+  border-radius:20px;
+  border:1px solid rgba(124,58,237,0.4);
+  margin-bottom:1.75rem;
+}
+.hero-eyebrow::before{content:'●';font-size:0.5rem;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{
+  font-size:clamp(2.75rem,7vw,5.5rem);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-0.03em;
+  max-width:14ch;
+  margin:0 auto 1.25rem;
+}
+.hero h1 em{
+  font-style:normal;
+  color:var(--violet-light);
+}
+.hero-sub{
+  font-size:clamp(1rem,2vw,1.2rem);
+  color:var(--muted);
+  max-width:48ch;
+  margin:0 auto 2.5rem;
+  line-height:1.7;
+}
+
+/* TYPEWRITER WIDGET */
+.typewriter-box{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.5rem 2rem;
+  max-width:480px;
+  width:100%;
+  margin:0 auto 3rem;
+  text-align:left;
+}
+.tw-label{
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--muted);
+  margin-bottom:0.75rem;
+}
+.tw-output{
+  font-family:'Syne',sans-serif;
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--violet-light);
+  min-height:2rem;
+}
+.tw-cursor{
+  display:inline-block;
+  width:2px;height:1.4em;
+  background:var(--violet-light);
+  vertical-align:middle;
+  margin-left:2px;
+  animation:blink 0.9s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.hero-actions{display:flex;align-items:center;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  background:var(--violet);
+  color:#fff;
+  padding:0.875rem 2rem;
+  border-radius:8px;
+  text-decoration:none;
+  font-family:'Syne',sans-serif;
+  font-weight:700;
+  font-size:1rem;
+  letter-spacing:0.02em;
+  transition:background 0.2s,transform 0.15s;
+  display:inline-block;
+}
+.btn-primary:hover{background:var(--violet-light);transform:translateY(-1px)}
+.btn-ghost{
+  color:var(--muted);
+  padding:0.875rem 1.5rem;
+  border-radius:8px;
+  text-decoration:none;
+  font-size:0.9rem;
+  border:1px solid var(--border);
+  transition:color 0.2s,border-color 0.2s;
+}
+.btn-ghost:hover{color:var(--white);border-color:var(--faint)}
+
+/* SOCIAL PROOF STRIP */
+.proof-strip{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:1.25rem 2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:3rem;
+  flex-wrap:wrap;
+  background:var(--surface);
+}
+.proof-stat{text-align:center}
+.proof-num{
+  font-family:'Syne',sans-serif;
+  font-size:1.5rem;
+  font-weight:800;
+  color:var(--white);
+}
+.proof-label{font-size:0.8rem;color:var(--muted);margin-top:0.1rem}
+
+/* SECTIONS */
+section{padding:5rem 1.5rem}
+.container{max-width:1000px;margin:0 auto}
+.section-eyebrow{
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--violet-light);
+  font-weight:600;
+  margin-bottom:0.75rem;
+}
+.section-title{
+  font-size:clamp(1.75rem,4vw,2.75rem);
+  font-weight:800;
+  line-height:1.15;
+  letter-spacing:-0.02em;
+  margin-bottom:1rem;
+}
+.section-sub{
+  color:var(--muted);
+  max-width:52ch;
+  font-size:1.05rem;
+  line-height:1.7;
+}
+
+/* WHAT YOU GET */
+.outputs-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  margin-top:3rem;
+}
+.output-item{
+  background:var(--surface);
+  padding:1.75rem;
+  transition:background 0.2s;
+}
+.output-item:hover{background:var(--card)}
+.output-icon{
+  width:40px;height:40px;
+  border-radius:8px;
+  background:var(--violet-dim);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1rem;
+  font-size:1.1rem;
+}
+.output-item h3{
+  font-size:1rem;
+  font-weight:700;
+  margin-bottom:0.4rem;
+  font-family:'Syne',sans-serif;
+}
+.output-item p{font-size:0.875rem;color:var(--muted);line-height:1.6}
+
+/* HOW IT WORKS */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:2rem;
+  margin-top:3rem;
+  position:relative;
+}
+.step{position:relative;padding-left:0}
+.step-num{
+  font-family:'Syne',sans-serif;
+  font-size:3rem;
+  font-weight:800;
+  color:var(--faint);
+  line-height:1;
+  margin-bottom:1rem;
+}
+.step h3{font-size:1rem;font-weight:700;margin-bottom:0.4rem;font-family:'Syne',sans-serif}
+.step p{font-size:0.875rem;color:var(--muted);line-height:1.6}
+
+/* PRICING */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem;
+  margin-top:3rem;
+  align-items:start;
+}
+.price-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:2rem;
+  position:relative;
+}
+.price-card.featured{
+  border-color:var(--violet);
+  background:var(--card);
+}
+.price-badge{
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:var(--violet);
+  color:#fff;
+  font-size:0.7rem;
+  font-weight:700;
+  font-family:'Syne',sans-serif;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:0.3rem 0.9rem;
+  border-radius:0 0 8px 8px;
+}
+.price-tier{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:600;margin-bottom:0.75rem}
+.price-amount{
+  font-family:'Syne',sans-serif;
+  font-size:2.5rem;
+  font-weight:800;
+  line-height:1;
+  margin-bottom:0.25rem;
+}
+.price-amount span{font-size:1rem;font-weight:400;color:var(--muted)}
+.price-desc{font-size:0.875rem;color:var(--muted);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem}
+.price-features li{font-size:0.875rem;display:flex;align-items:flex-start;gap:0.6rem;color:var(--muted)}
+.price-features li::before{content:'✓';color:var(--violet-light);font-weight:700;flex-shrink:0;margin-top:1px}
+.price-features li.dim::before{content:'–';color:var(--faint)}
+.price-features li.dim{color:var(--faint)}
+.price-btn{
+  display:block;
+  text-align:center;
+  padding:0.75rem;
+  border-radius:7px;
+  text-decoration:none;
+  font-family:'Syne',sans-serif;
+  font-weight:700;
+  font-size:0.9rem;
+  transition:all 0.2s;
+}
+.price-btn-primary{background:var(--violet);color:#fff}
+.price-btn-primary:hover{background:var(--violet-light)}
+.price-btn-ghost{border:1px solid var(--border);color:var(--muted)}
+.price-btn-ghost:hover{border-color:var(--violet);color:var(--violet-light)}
+
+/* TESTIMONIALS */
+.testi-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;
+  margin-top:3rem;
+}
+.testi-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.75rem;
+}
+.testi-quote{
+  font-size:0.95rem;
+  line-height:1.7;
+  color:var(--white);
+  margin-bottom:1.25rem;
+}
+.testi-quote::before{content:'"';color:var(--violet-light);font-size:1.5rem;font-family:'Syne',sans-serif;display:block;margin-bottom:0.5rem;line-height:1}
+.testi-author{display:flex;align-items:center;gap:0.75rem}
+.testi-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--violet-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;
+  color:var(--violet-light);
+  flex-shrink:0;
+}
+.testi-name{font-weight:600;font-size:0.875rem}
+.testi-genre{font-size:0.8rem;color:var(--muted)}
+
+/* FAQ */
+.faq-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{
+  width:100%;background:none;border:none;
+  color:var(--white);
+  font-family:'Syne',sans-serif;
+  font-size:1rem;
+  font-weight:600;
+  padding:1.25rem 0;
+  text-align:left;
+  cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:1rem;
+}
+.faq-q:hover{color:var(--violet-light)}
+.faq-toggle{
+  color:var(--violet-light);
+  font-size:1.25rem;
+  flex-shrink:0;
+  transition:transform 0.2s;
+}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-a{
+  display:none;
+  color:var(--muted);
+  font-size:0.9rem;
+  line-height:1.7;
+  padding-bottom:1.25rem;
+}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.cta-section{
+  text-align:center;
+  padding:6rem 1.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.cta-section::before{
+  content:'';
+  position:absolute;
+  bottom:-30%;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;
+  background:radial-gradient(ellipse,rgba(124,58,237,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-section h2{
+  font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  margin-bottom:1rem;
+  position:relative;
+}
+.cta-section p{color:var(--muted);font-size:1.05rem;margin-bottom:2rem;position:relative}
+.cta-note{font-size:0.8rem;color:var(--faint);margin-top:1rem}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer-logo{
+  font-family:'Syne',sans-serif;
+  font-weight:800;
+  font-size:1.1rem;
+  letter-spacing:0.04em;
+}
+.footer-logo span{color:var(--violet-light)}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{font-size:0.8rem;color:var(--faint)}
+
+/* MOBILE */
+@media(max-width:640px){
+  nav{padding:1rem 1.25rem}
+  .nav-links{display:none}
+  .proof-strip{gap:1.5rem}
+  section{padding:3.5rem 1.25rem}
+  footer{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">PROMO<span>KIT</span></a>
+  <div class="nav-links">
+    <a href="#what-you-get">What's included</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a class="nav-cta" href="music-promo-kit.html">Generate free kit →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">AI-powered · ready in 60 seconds</div>
+  <h1>Your music deserves a <em>proper</em> press kit</h1>
+  <p class="hero-sub">Stop fumbling with blank docs at midnight before a release. PromoKit generates your full promo pack in seconds — bios, press release, social captions, curator pitch, hashtags.</p>
+
+  <div class="typewriter-box">
+    <div class="tw-label">Generating your kit…</div>
+    <div class="tw-output" id="tw-output"><span class="tw-cursor"></span></div>
+  </div>
+
+  <div class="hero-actions">
+    <a class="btn-primary" href="music-promo-kit.html">Generate my kit free →</a>
+    <a class="btn-ghost" href="#pricing">See pricing</a>
+  </div>
+</section>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-stat"><div class="proof-num">60s</div><div class="proof-label">Average generation time</div></div>
+  <div class="proof-stat"><div class="proof-num">6</div><div class="proof-label">Documents per kit</div></div>
+  <div class="proof-stat"><div class="proof-num">£9</div><div class="proof-label">Per kit · no subscription</div></div>
+  <div class="proof-stat"><div class="proof-num">All genres</div><div class="proof-label">Supported</div></div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section id="what-you-get">
+  <div class="container">
+    <div class="section-eyebrow">What's included</div>
+    <h2 class="section-title">Everything a PR agency would charge £300 for</h2>
+    <p class="section-sub">Fill in one form. Get a complete, professional promo pack — tailored to your sound, your release, and your story.</p>
+    <div class="outputs-grid">
+      <div class="output-item">
+        <div class="output-icon">📝</div>
+        <h3>Short bio</h3>
+        <p>A punchy 80-word bio for playlist pitches, venue bios, and social profiles.</p>
+      </div>
+      <div class="output-item">
+        <div class="output-icon">📄</div>
+        <h3>Long bio</h3>
+        <p>A full 250-word artist story for press submissions and EPK pages.</p>
+      </div>
+      <div class="output-item">
+        <div class="output-icon">📰</div>
+        <h3>Press release</h3>
+        <p>A properly formatted release announcement, ready to send to blogs and media.</p>
+      </div>
+      <div class="output-item">
+        <div class="output-icon">📱</div>
+        <h3>Social captions</h3>
+        <p>Platform-specific copy for Instagram, X, TikTok, and Facebook — each tuned to how that audience reads.</p>
+      </div>
+      <div class="output-item">
+        <div class="output-icon">#️⃣</div>
+        <h3>Hashtag set</h3>
+        <p>25–30 genre-appropriate hashtags to extend your organic reach on every platform.</p>
+      </div>
+      <div class="output-item">
+        <div class="output-icon">📧</div>
+        <h3>Curator email pitch</h3>
+        <p>A cold-pitch email for Spotify playlist curators — one of the hardest things to write well.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="section-eyebrow">How it works</div>
+    <h2 class="section-title">Three steps, then you're done</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Fill in the form</h3>
+        <p>Your artist name, genre, release title, the story behind the track, and any links. Takes about two minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Generate your kit</h3>
+        <p>Our AI writes all six documents simultaneously, tuned to your genre and your words — not a generic template.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Download and send</h3>
+        <p>Copy individual sections or download the full kit as a formatted PDF. Start pitching the same day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Artists using PromoKit</div>
+    <h2 class="section-title">Built by a working musician, for working musicians</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">I've been putting off writing a proper press release for three releases in a row. Used PromoKit before a gig, had the whole thing done before soundcheck.</div>
+        <div class="testi-author">
+          <div class="testi-avatar">GL</div>
+          <div>
+            <div class="testi-name">Glen, N3ON N0iZE</div>
+            <div class="testi-genre">Party duo · Liverpool & Northwest</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">The curator pitch alone is worth it. I never knew how to write those without sounding desperate or robotic. The one PromoKit wrote got two replies in the first week.</div>
+        <div class="testi-author">
+          <div class="testi-avatar">SK</div>
+          <div>
+            <div class="testi-name">Sarah K.</div>
+            <div class="testi-genre">Indie singer-songwriter</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">Every platform wants something different and I was spending hours rewriting the same information. This just handles it — and it sounds like me, not like a press release machine.</div>
+        <div class="testi-author">
+          <div class="testi-avatar">MJ</div>
+          <div>
+            <div class="testi-name">Marcus J.</div>
+            <div class="testi-genre">Electronic producer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="section-eyebrow">Pricing</div>
+    <h2 class="section-title">Pay per kit, or go unlimited</h2>
+    <p class="section-sub">Start free, no card required. Upgrade when you're ready to download your PDF.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Preview</div>
+        <div class="price-amount">£0</div>
+        <div class="price-desc">See a taste of your kit before you commit. No sign-up needed.</div>
+        <ul class="price-features">
+          <li>Bio teaser (first 2 sentences)</li>
+          <li class="dim">Full bio, press release, socials</li>
+          <li class="dim">Hashtags & email pitch</li>
+          <li class="dim">Copy to clipboard</li>
+          <li class="dim">PDF download</li>
+        </ul>
+        <a class="price-btn price-btn-ghost" href="music-promo-kit.html">Try the preview</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Most popular</div>
+        <div class="price-tier">Artist</div>
+        <div class="price-amount">£9 <span>per kit</span></div>
+        <div class="price-desc">Pay as you go. Or £19/month for unlimited.</div>
+        <ul class="price-features">
+          <li>Unlimited kits</li>
+          <li>All 6 documents generated</li>
+          <li>Copy to clipboard</li>
+          <li>PDF download (formatted A4)</li>
+          <li>Priority generation</li>
+        </ul>
+        <a class="price-btn price-btn-primary" href="music-promo-kit.html">Get started</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Label / Agency</div>
+        <div class="price-amount">£49 <span>/month</span></div>
+        <div class="price-desc">For teams managing multiple artists and releases.</div>
+        <ul class="price-features">
+          <li>Unlimited kits</li>
+          <li>All 6 documents generated</li>
+          <li>Copy to clipboard</li>
+          <li>PDF download</li>
+          <li>White-label output (no PromoKit branding)</li>
+        </ul>
+        <a class="price-btn price-btn-ghost" href="mailto:hello@promokit.io">Contact us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container" style="max-width:700px">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title">Common questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is this just ChatGPT with a form? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Not quite. The prompts are written specifically for music PR — press releases, curator pitches, platform-specific social copy — and tuned to output content that sounds like a human music publicist wrote it, not a general-purpose AI. You're paying for the prompt engineering and formatting, not just the API call.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I use this for an EP or album, not just a single? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Yes — the form supports Singles, EPs, Albums, and Remixes. The generated content adapts to the release type accordingly.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What genres does it support? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">All of them. The AI writes genre-appropriate language and hashtags based on what you enter. It works for electronic, hip-hop, indie, folk, metal, jazz, classical — and anything in between or outside those boxes.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I edit the output? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Yes — everything is editable text. Think of the output as a very strong first draft rather than a finished product. Most artists tweak one or two lines before sending, but the structure and language are solid enough to use as-is.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do I need to sign up? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Not for the free tier. You can generate a full kit right now without creating an account. Sign-up is only required if you want to save your kits or purchase a PDF download.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container" style="position:relative">
+    <h2>Your next release.<br><em style="font-style:normal;color:var(--violet-light)">Properly promoted.</em></h2>
+    <p>Generate your first kit in under 60 seconds. No card required.</p>
+    <a class="btn-primary" href="music-promo-kit.html">Generate my kit free →</a>
+    <div class="cta-note">Free · no sign-up · no card required</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">PROMO<span>KIT</span></div>
+  <div class="footer-links">
+    <a href="#what-you-get">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:hello@promokit.io">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 PromoKit. Built for independent artists.</div>
+</footer>
+
+<script>
+const phrases = [
+  'Press Release',
+  'Curator Email Pitch',
+  'Instagram Caption',
+  'Artist Bio',
+  'TikTok Caption',
+  'Hashtag Set',
+  'Facebook Post',
+  'Long-form Bio',
+  'Press Release'
+];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let deleting = false;
+const el = document.getElementById('tw-output');
+
+function type() {
+  const current = phrases[phraseIndex];
+  if (!deleting) {
+    charIndex++;
+    el.innerHTML = current.slice(0, charIndex) + '<span class="tw-cursor"></span>';
+    if (charIndex === current.length) {
+      deleting = true;
+      setTimeout(type, 1800);
+      return;
+    }
+    setTimeout(type, 60);
+  } else {
+    charIndex--;
+    el.innerHTML = current.slice(0, charIndex) + '<span class="tw-cursor"></span>';
+    if (charIndex === 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(type, 300);
+      return;
+    }
+    setTimeout(type, 30);
+  }
+}
+
+type();
+
+function toggleFaq(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+</script>
+</body>
+</html>
