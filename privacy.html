@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — PromoKit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0A0A0F;
+  --surface:#13121A;
+  --card:#1C1A28;
+  --border:#2E2B42;
+  --violet:#7C3AED;
+  --violet-light:#9D6FF5;
+  --violet-dim:#3D2170;
+  --white:#F0EDFF;
+  --muted:#8B87A8;
+  --faint:#3A364F;
+}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,.display{font-family:'Syne',sans-serif}
+
+nav{
+  position:sticky;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 2rem;
+  background:rgba(10,10,15,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:0.04em;color:var(--white);text-decoration:none}
+.nav-logo span{color:var(--violet-light)}
+.nav-back{color:var(--muted);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
+.nav-back:hover{color:var(--white)}
+
+.wrap{max-width:720px;margin:0 auto;padding:4rem 1.5rem 6rem}
+.eyebrow{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--violet-light);font-weight:600;margin-bottom:0.75rem}
+h1{font-size:clamp(2rem,5vw,2.75rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.updated{font-size:0.875rem;color:var(--muted);margin-bottom:3rem}
+
+h2{font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;margin:2.5rem 0 0.85rem}
+p{color:var(--white);margin-bottom:1rem}
+p.muted{color:var(--muted)}
+ul{margin:0.5rem 0 1rem 1.25rem;color:var(--white)}
+li{margin-bottom:0.5rem}
+a{color:var(--violet-light)}
+strong{color:var(--white)}
+
+.callout{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-left:3px solid var(--violet);
+  border-radius:8px;
+  padding:1.25rem 1.5rem;
+  margin:1.5rem 0;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+
+footer{
+  border-top:1px solid var(--border);
+  padding:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:0.04em}
+.footer-logo span{color:var(--violet-light)}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{font-size:0.8rem;color:var(--faint)}
+
+@media(max-width:640px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">PROMO<span>KIT</span></a>
+  <a class="nav-back" href="index.html">← Back to site</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 20 June 2026</p>
+
+  <p>PromoKit ("we", "us") makes this site available to independent artists for generating promotional materials. This page explains what information we collect when you use it, and how it's used.</p>
+
+  <h2>Who we are</h2>
+  <p>PromoKit is operated by Glen Thomas. If you have any questions about this policy or how your data is handled, contact <a href="mailto:usefulthings2k@gmail.com">usefulthings2k@gmail.com</a>.</p>
+
+  <h2>What we collect</h2>
+  <p>When you use the generator, you enter details about yourself and your release — artist name, genre, bio, release info, and any links you choose to provide. This information is sent to our AI provider (Anthropic) to generate your promo kit, and is used only for that purpose.</p>
+  <p>PromoKit does not currently require an account, and we do not store your form submissions or generated kits on our servers after your session ends. Each kit exists only in your browser unless you download it.</p>
+
+  <h2>Payments</h2>
+  <p>Payments are handled entirely by Stripe. We never see or store your card details — Stripe processes your payment directly and only passes us confirmation that payment was completed.</p>
+
+  <h2>Cookies & tracking</h2>
+  <p>This site does not currently use advertising or tracking cookies. Only the technical cookies/local data necessary for the site and your browser session to function are used, if any.</p>
+
+  <h2>Third parties we use</h2>
+  <ul>
+    <li><strong>Anthropic</strong> — processes the details you submit to generate your kit's text content.</li>
+    <li><strong>Stripe</strong> — processes payments.</li>
+    <li><strong>Vercel</strong> — hosts this website.</li>
+  </ul>
+  <p class="muted">Each of these providers may process data outside the UK/EEA as part of operating their service. They are established providers with their own privacy and security commitments — see their respective privacy policies for details.</p>
+
+  <h2>Your rights</h2>
+  <p>If you're in the UK or EEA, you have rights under data protection law including the right to ask what data we hold about you, to correct it, or to request its deletion. Since we don't currently store submissions after your session, there's typically nothing to retrieve — but if you have concerns, email us and we'll look into it.</p>
+
+  <h2>Children</h2>
+  <p>This service is intended for artists and musicians and is not directed at children. We don't knowingly collect information from anyone under 16.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy as the product changes. The "last updated" date at the top will reflect the most recent revision.</p>
+
+  <div class="callout">
+    This policy describes the product as it currently works. It's a plain-language summary, not a substitute for legal advice — if you're relying on this for a business with significant transaction volume, it's worth having a solicitor review it.
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">PROMO<span>KIT</span></div>
+  <div class="footer-links">
+    <a href="index.html#what-you-get">Features</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:usefulthings2k@gmail.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 PromoKit. Built for independent artists.</div>
+</footer>
+
+</body>
+</html>
